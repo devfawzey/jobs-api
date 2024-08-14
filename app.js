@@ -34,6 +34,7 @@ app.use(rateLimiter({
 const { errorHandlerMiddleware, notFoundMiddleware } = require("./middleware")
 
 // routes
+app.get("/", (req, res) => res.send("jobs api"))
 app.use("/api/v1/jobs/", authenticatedUser, jobRoute)
 app.use("/api/v1/auth", authRoute)
 app.use(notFoundMiddleware)
