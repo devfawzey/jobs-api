@@ -19,9 +19,9 @@ const rateLimiter = require("express-rate-limit")
 const swaggerUi = require("swagger-ui-express")
 const swaggerJsDoc = require("swagger-jsdoc")
 // const Yaml = require("yaml")
-// const yamlJS = require("yamljs")
+const yamlJS = require("yamljs")
 // const swaggerDocument = yamlJS.load("./swagger.yaml")
-const swaggerDocument = require("./swagger.json")
+// const swaggerDocument = require("./swagger.json")
 const options = {
  definition: {
   openapi: "3.0.0",
@@ -44,7 +44,7 @@ const options = {
   ],
  },
  // This is to call all the file
- apis: ["./swagger.yaml"],
+ apis: ["routes/*.js"],
 };
 
 const specs = swaggerJsDoc(options);
