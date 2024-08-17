@@ -28,14 +28,12 @@ const login = async (req, res) => {
 
  // you can create token
  const token = user.createJWT()
- console.log("______________")
  res.status(StatusCodes.OK).json({ msg: "logged success", user, token })
 }
 
 const showCurrentUser = async (req, res) => {
  const authHeader = req.headers.authorization
 
- console.log('yes')
  if (!authHeader || !authHeader.startsWith("Bearer ")) throw new BadRequestError("token is not provided");
 
  try {
