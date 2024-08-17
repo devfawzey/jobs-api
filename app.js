@@ -17,9 +17,10 @@ const rateLimiter = require("express-rate-limit")
 
 // 
 const swaggerUi = require("swagger-ui-express")
-const yamlJS = require("yamljs")
+// const yamlJS = require("yamljs")
+// const swaggerDocument = yamlJS.load("./swagger.yaml")
+const swaggerDocument = require("./swagger.json")
 
-const swaggerDocument = yamlJS.load("./swagger.yaml")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
