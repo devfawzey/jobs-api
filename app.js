@@ -16,10 +16,10 @@ const xss = require("xss-clean")
 const rateLimiter = require("express-rate-limit")
 
 // 
-const swaggerUi = require("swagger-ui-express")
-const yamlJS = require("yamljs")
+// const swaggerUi = require("swagger-ui-express")
+// const yamlJS = require("yamljs")
 
-const swaggerDocument = yamlJS.load("./swagger.yaml")
+// const swaggerDocument = yamlJS.load("./swagger.yaml")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -38,7 +38,7 @@ const { errorHandlerMiddleware, notFoundMiddleware } = require("./middleware")
 
 // routes
 app.get("/", (req, res) => res.send("<h1>Jobs Api</h1> <a href='/api-docs'>API-Documents</a>"))
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use("/api/v1/jobs/", authenticatedUser, jobRoute)
 app.use("/api/v1/auth", authRoute)
 app.use(notFoundMiddleware)
